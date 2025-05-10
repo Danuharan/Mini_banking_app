@@ -117,7 +117,7 @@ def main():
                 users = load_users()
                 user_menu(users, username)
         elif choice == "4":
-            print("👋 Exiting...")
+            print(" Exiting...")
             break
         else:
             print(" Invalid input. Try again.")
