@@ -1,0 +1,4 @@
+A001: Account created with initial balance: 10000.0
+A002: Account created with initial balance: 900.0
+A001: Deposit: +200.0
+A001: Withdrawal: -20.0

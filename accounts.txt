@@ -1,0 +1,2 @@
+A001;Ramanathan Danuharan;10180.0;Account opened with 10000.0|Deposit: +200.0|Withdrawal: -20.0
+A002;Ramanathan Danuharan;900.0;Account opened with 900.0
