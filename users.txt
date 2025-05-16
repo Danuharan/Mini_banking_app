@@ -1,1 +1,2 @@
 Ram Danu;1111;customer
+sanga;2222;customer
