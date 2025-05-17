@@ -1,14 +1,13 @@
 import os
 
-# File paths
-USERS_FILE = "users.txt"
-CUSTOMERS_FILE = "customers.txt"
-ACCOUNTS_FILE = "accounts.txt"
-TRANSACTIONS_FILE = "transactions.txt"
+## File names that the program uses to store different kinds of data
+USERS_FILE = "users.txt"                                 #(usernames, passwords, and roles)
+CUSTOMERS_FILE = "customers.txt"                         #(customer IDs, names)
+ACCOUNTS_FILE = "accounts.txt"                           #(bank account info)
+TRANSACTIONS_FILE = "transactions.txt"                   #(transaction info)
 
-# Global data
-accounts = {}
-current_user = None
+
+accounts = {}                                            #opened a global empty dictionary
 
 # Load accounts from file
 def load_accounts():
@@ -28,7 +27,7 @@ def load_accounts():
                 }
     return data
 
-# Save accounts to file
+# Save the accounts details to the file
 def save_accounts(data):
     with open(ACCOUNTS_FILE, "w") as f:
         for acc_no, details in data.items():
@@ -60,6 +59,20 @@ def generate_account_number():
 def record_transaction(account_number, detail):
     with open(TRANSACTIONS_FILE, "a") as f:
         f.write(f"{account_number}: {detail}\n")
+        
+## Admin check the customers
+def display_customer_list():
+    if not os.path.exists(CUSTOMERS_FILE):
+        print("No customers found.")
+        return
+    with open(CUSTOMERS_FILE, "r") as f:
+        lines = f.readlines()
+        if not lines:
+            print("No customers found.")
+            return
+        print("\n--- Customer List ---")
+        for line in lines:
+            print(line.strip())
 
 # Admin register customer
 def register_customer():
@@ -228,14 +241,14 @@ def login():
                 customer_menu(username)
                 return
 
-    print("Invalid credentials.")
+    print("Invalid username or password...")
 
 # Entry point
 def main():
     global accounts
     accounts = load_accounts()
     while True:
-        print("\n=== Welcome to Mini Banking App ===")
+        print("-----Welcome to Mini Banking App------")
         login()
 
 main()

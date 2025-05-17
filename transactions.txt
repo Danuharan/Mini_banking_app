@@ -3,3 +3,6 @@ A002: Account created with initial balance: 900.0
 A001: Deposit: +200.0
 A001: Withdrawal: -20.0
 A003: Account created with initial balance: 100000.0
+A004: Account created with initial balance: 20000.0
+A004: Deposit: +33.0
+A003: Withdrawal: -20.0

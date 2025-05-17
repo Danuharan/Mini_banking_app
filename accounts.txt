@@ -1,3 +1,4 @@
 A001;Ramanathan Danuharan;10180.0;Account opened with 10000.0|Deposit: +200.0|Withdrawal: -20.0
 A002;Ramanathan Danuharan;900.0;Account opened with 900.0
-A003;mahela sanga;100000.0;Account opened with 100000.0
+A003;mahela sanga;99980.0;Account opened with 100000.0|Withdrawal: -20.0
+A004;Dilshoop Dilshan;20033.0;Account opened with 20000.0|Deposit: +33.0
