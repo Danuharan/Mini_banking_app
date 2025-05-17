@@ -1,3 +1,4 @@
 Ram Danu;1111;customer
 sanga;2222;customer
 Dilli;01;customer
+Gilli;Gilli123;customer

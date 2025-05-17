@@ -60,7 +60,8 @@ def record_transaction(account_number, detail):
     with open(TRANSACTIONS_FILE, "a") as f:
         f.write(f"{account_number}: {detail}\n")
         
-## Admin check the customers
+
+### To Display Customer List
 def display_customer_list():
     if not os.path.exists(CUSTOMERS_FILE):
         print("No customers found.")
@@ -74,11 +75,26 @@ def display_customer_list():
         for line in lines:
             print(line.strip())
 
+    
+
+
+
 # Admin register customer
 def register_customer():
     name = input("Enter customer's full name: ")
     username = input("Choose a username: ")
-    password = input("Choose a password: ")
+    while True:
+        password = input("Choose a password: (It should be at least 6 characters long)")
+        if len(password)<6:
+            print("Invalid password, Password must be at least 6 characters")
+        else:
+            break
+    '''role= input("Enter the role")
+    
+    
+    
+    
+    '''
 
     customer_id = generate_customer_id()
     with open(USERS_FILE, "a") as uf:
@@ -180,6 +196,7 @@ def admin_menu():
         --- Admin Menu ---
         1. Register New Customer
         2. Logout
+        3. Check Admin Status
         """)
         choice = input("Choice: ")
         if choice == "1":
@@ -200,7 +217,9 @@ def customer_menu(username):
         3. Withdraw Money
         4. Check Balance
         5. Transaction History
-        6. Logout
+        6. Check Admin Status
+        7. Display Customer List
+        8. Logout
         """)
         choice = input("Choice: ")
         if choice == "1":
@@ -214,6 +233,10 @@ def customer_menu(username):
         elif choice == "5":
             transaction_history()
         elif choice == "6":
+            check_admin_status(username)
+        elif choice == "7":
+            display_customer_list()
+        elif choice == "8":
             print("Logging out...")
             break
         else:
@@ -242,6 +265,21 @@ def login():
                 return
 
     print("Invalid username or password...")
+
+### To check Admin status
+def check_admin_status(username):
+    with open(USERS_FILE, "r") as f:
+        for line in f:
+            user, pw, role = line.strip().split(";")
+            if role == "customer":
+                print("You are a customer..")
+                return
+            else:
+                print("You are an Admin..")
+
+    print("Invalid person..")
+
+        
 
 # Entry point
 def main():
